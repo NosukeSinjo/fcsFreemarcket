@@ -1,0 +1,27 @@
+h1= @user.user_name + "のマイページ"
+= link_to 'お店を探す', '/merchants', class: 'btn btn-block btn-outline-primary btn-sm'
+
+= button_to 'Log out', logout_path, method: :delete
+h2 注文履歴
+- if @orders.any?
+    - @orders.each_slice(4) do |slice_orders|
+      .row
+        - slice_orders.each do |order|
+            .col-md-3
+                .card.my-3
+                    .card-body
+                        h5.card-title
+                            注文日時
+                            = order.created_at
+                        .card-text
+                            商品
+                            =order.product.title
+                        .card-text
+                            金額
+                            =order.total_amount
+                        .card-text
+                            = link_to '領収書を表示', '/users/:id/receipt', class: 'btn btn-primary'
+- else
+  p 注文履歴はありません。
+
+

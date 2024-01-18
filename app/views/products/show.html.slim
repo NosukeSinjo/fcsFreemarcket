@@ -1,0 +1,17 @@
+h1 商品情報
+
+.col-md-3
+    .card.my-3
+        
+        .card-body
+            h5.card-title
+                = @product.title
+            p.card-text
+                = @product.description
+            .card-text
+               = @product.price
+            .card-text
+               = link_to "購入", '/orders/new', class: 'btn btn-block btn-outline-primary btn-sm'
+
+= link_to "戻る", '/merchants', class: 'btn btn-block btn-outline-primary btn-sm'
+

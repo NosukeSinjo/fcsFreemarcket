@@ -1,0 +1,10 @@
+h1 Log in
+= form_tag '/top/login' , method: :post do
+    = label_tag :user_name, '名前'
+    = text_field_tag :user_name
+    .submit
+        = submit_tag 'ログイン'
+    .new_user
+        = link_to '新規登録の方はこちら', new_user_path
+
+= link_to 'お店の方はこちら', '/login'

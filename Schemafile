@@ -1,0 +1,45 @@
+create_table 'users', comment: 'ユーザー' do |t|
+  t.string :user_name, unique:true, null: false
+  t.datetime :created_at, null: false
+  t.timestamps null: false
+end
+
+create_table 'products', comment: '商品' do |t|
+  t.references :merchant, null: false, foreign_key: { to_table: :merchants }
+  t.string :title, null: false, comment: '商品名'
+  t.string :description, null: true
+  t.integer :price, null: false
+  t.datetime :purchased_at, null: true
+  t.timestamps null: false
+end
+
+create_table 'merchants', comment: 'お店' do |t|
+  t.string :merchant_name, unique:true, null: false
+  t.string :seller, null: false
+  t.datetime :created_at, null: false
+  t.datetime :updated_at, null: false
+  t.timestamps null: false
+end
+
+create_table 'orders', comment: '注文情報' do |t|
+  t.references :user, null: false, foreign_key: { to_table: :users }
+  t.references :product, null: false, foreign_key: { to_table: :products }
+  t.integer :total_amount, null: false
+  t.string :payment_method, null: false
+  t.datetime :created_at, null: false
+  t.datetime :updated_at, null: false
+end
+
+create_table 'patments', comment: '支払い' do |t|
+  t.references :user, null: false, foreign_key: { to_table: :users }
+  t.references :order, null: false, foreign_key: { to_table: :orders }
+  t.integer :amount, null: false
+  t.datetime :created_at, null: false
+  t.datetime :updated_at, null: false
+end
+
+create_table 'transactions', comment: '取引情報' do |t|
+  t.references :user, null: false, foreign_key: { to_table: :users }
+  t.datetime :created_at, null: false
+  t.datetime :updated_at, null: false
+end

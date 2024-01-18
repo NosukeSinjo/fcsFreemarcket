@@ -1,0 +1,19 @@
+h1 注文いただいた商品の情報
+
+p
+  strong 注文いただいた方のお名前:
+  = @order.user.user_name
+
+p
+  strong 商品名:
+  = @order.product.title
+
+p
+  strong 金額:
+  = @order.total_amount
+
+p
+  strong 支払い方法:
+  = @order.payment_method
+
+= link_to 'またお店を探しにいく', '/merchants', class: 'btn btn-block btn-outline-primary btn-sm'

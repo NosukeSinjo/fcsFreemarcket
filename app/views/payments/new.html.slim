@@ -1,0 +1,16 @@
+h1 New Payment
+
+= form_for @payment do |f|
+  div
+    = f.label :order_id
+    = f.collection_select :order_id, Order.all, :id, :id
+
+  div
+    = f.label :amount
+    = f.number_field :amount
+
+  div
+    = f.label :payment_method
+    = f.text_field :payment_method
+
+  = f.submit "Make Payment"

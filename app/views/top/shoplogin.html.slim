@@ -1,0 +1,8 @@
+h1 Log in
+= form_tag '/top/shoplogin' , method: :post do
+    = label_tag :merchant_name, '名前'
+    = text_field_tag :merchant_name
+    .submit
+        = submit_tag 'ログイン'
+    .new_merchant
+        = link_to '新規登録の方はこちら', new_merchant_path

@@ -1,0 +1,10 @@
+お店の方のログイン
+= form_for :merchantsession, url:merchantlogin_path do |f|
+    .form-group
+        = f.label :merchant_name, '名前'
+        = f.text_field :merchant_name
+    = f.submit 'ログイン'
+
+アカウントがない方
+.new_merchant
+    = link_to '新規登録の方はこちら', new_merchant_path

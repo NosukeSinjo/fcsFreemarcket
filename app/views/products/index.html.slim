@@ -1,0 +1,20 @@
+h1 商品
+
+= link_to "新商品追加", new_product_path
+
+-@products.each_slice(4) do |slice_products|
+    .row
+        - slice_products.each do |product|
+            .col-md-3
+                .card.my-3
+                    = image_tag product.image, height: 200, style: "object-fit: cover"
+                    .card-body
+                        h5.card-title
+                            = product.title
+                        p.card-text
+                            = product.description.truncate(35)
+                        .card-text
+                            = product.price
+                        - if product.purchased_at.nil?
+                            = link_to '購入', "/orders/progress", class: 'btn btn-block btn-outline-primary btn-sm'
+

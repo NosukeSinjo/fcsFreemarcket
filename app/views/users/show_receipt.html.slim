@@ -1,0 +1,7 @@
+h1 領収書
+
+- if @receipt_path.present?
+    = link_to 'PDFで表示', @receipt_path, target: '_blank'
+- else 
+    p 領収書はありません.
+

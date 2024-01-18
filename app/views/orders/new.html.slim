@@ -1,0 +1,12 @@
+h1 商品購入
+
+= form_with model: @order do |f|
+  div
+    = f.label :title
+    = f.text_field :title, value: Product.find(params[:id]).title, readonly: true
+
+  div
+    = f.label :total_amount
+    = f.collection_select :total_amount, Product.all, :id, :price
+
+  = f.submit "購入！"

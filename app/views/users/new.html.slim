@@ -1,0 +1,6 @@
+新規登録
+= form_for @user, action: :create do |t|
+  .form-group
+    = t.label :user_name, '名前'
+    = t.text_field :user_name
+  = t.submit '登録'

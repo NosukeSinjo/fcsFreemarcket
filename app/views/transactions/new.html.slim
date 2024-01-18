@@ -1,0 +1,17 @@
+h1 Transaction History
+
+table
+  tr
+    th Order ID
+    th Amount
+    th Payment Method
+    th Transaction Date
+
+  
+    - @transactions.each do |transaction|
+        tr
+            td = transaction.order_id
+            td = transaction.amount
+            td = transaction.payment_method
+            td = transaction.created_at.strftime("%Y-%m-%d %H:%M:%S")
+    
